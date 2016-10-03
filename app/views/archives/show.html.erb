@@ -1,0 +1,114 @@
+<div class="box effect2">  
+  <p>
+    <h3>File: <div id="file_name"><%= @archive.uploaded_file_file_name %></div> </h3> 
+    
+    
+    
+  </p>
+  
+  <div id="programming_language">
+    
+    <h4 style="float:left;"></h4>
+    <div style="float:right;">
+      <%= link_to 'Download this code', download_url(@archive), :class => 'btn btn-default btn-sm', :id => 'download_button' %>
+      
+       <% if user_signed_in? and current_user.id == @archive.user_id%>
+        <button id='save_button' class='btn btn-default btn-sm'> Save </button>
+      <% end %>
+    </div>
+    
+  </div>
+  
+  <br></br>
+  
+  <div id="ace-editor-section">
+    <pre id="editor"><%= File.open(@archive.uploaded_file.path, "r:ISO-8859-1") do |a|
+      @archive.uploaded_file = a
+      a.read
+      end %>
+    </pre>
+    
+    <div id="prueba">
+    </div>
+    
+  </div>
+  
+  <script>
+    var setMode = function(extension){
+      editor.session.setMode("ace/mode/" + extension);
+    }
+  
+    var file_name = $("#file_name").text();
+    console.log(file_name);
+    
+    //Split file_name and get the last element, that's to say, the file_extension
+    var file_nameArray = file_name.split('.');
+    console.log(file_nameArray);
+    var file_extension = file_nameArray[file_nameArray.length - 1];
+    
+    console.log(file_extension);
+    
+    //Prepare Ace Editor
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/github");
+    
+    var programming_language = '';
+    $("#programming_language>h4").empty();
+    //Select the correct file extension
+    switch (file_extension) { 
+    	case 'py': 
+    		programming_language = 'Python';
+    		setMode('python');
+    		break;
+    	case 'cs': 
+    		programming_language = 'C Sharp';
+    		setMode('csharp');
+    		break;
+    	case 'rb': 
+    		programming_language = 'Ruby';
+    		setMode('ruby');
+    		break;		
+    	case 'js': 
+    		programming_language = 'JavaScript';
+    		setMode('javascript');
+    		break;
+    	case 'tex': 
+    		programming_language = 'Latex';
+    		setMode('latex');
+    		break;
+    	case 'c': 
+    		programming_language = 'C';
+    		setMode('c_cpp');
+    		break;
+    	case 'cpp': 
+    		programming_language = 'C++';
+    		setMode('c_cpp');
+    		break;
+    	case 'java': 
+    		programming_language = 'Java';
+    		setMode('java');
+    		break;
+    	case 'scala': 
+    		programming_language = 'Scala';
+    		setMode('scala');
+    		break;
+    	case 'html': 
+    		programming_language = 'HTML';
+    		setMode('html');
+    		break;
+    	case 'css': 
+    		programming_language = 'CSS';
+    		setMode('css');
+    		break;
+    	default:
+    		alert('This file extension is not allowed!');
+    }
+    $("#programming_language>h4").append("Programming Language: " + programming_language);
+  </script>
+  
+  <% if user_signed_in? and current_user.id != @archive.user_id%>
+    <%= link_to 'Back', public_browse_path(@archive.folder_id) %>
+  <% else %>
+    <%= link_to 'Back', browse_path(@archive.folder_id) %>
+  <% end %>
+</div>

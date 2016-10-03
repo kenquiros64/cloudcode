@@ -1,0 +1,50 @@
+<div class="archive_list"> 
+    <div class="box effect2" id="boxSignIn">
+        
+        <% if @current_folder %>    
+            <h3><%= @current_folder.name %></h3>
+        <% end %> 
+        
+        <div class="breadcrumbs">         
+            <% if @current_folder #checking if we are under any folder %> 
+                <%= link_to "All Public Projects", public_path %> 
+                <% @current_folder.ancestors.reverse.each do |folder| %> 
+                    » <%= link_to folder.name, public_browse_path(folder) %> 
+                <% end %> 
+                 »  <%= @current_folder.name %> 
+            <% else #if we are not under any folder%> 
+                <h3> CloudCode - List of All Public Projects</h3>
+            <% end %> 
+        </div>
+            
+        
+        <!-- Listing Folders -->
+        <% @folders.each do |folder| %> 
+            <div class="archive_details"> 
+                <div class="file_name folder"><%= link_to folder.name, public_browse_path(folder) %></div>  
+                <div class="file_size"> - </div> 
+                <div class="file_last_updated"> - </div> 
+                <div>
+                    <% #if not @current_folder %>
+                        <% if folder.is_private%>
+                            <div class="folder_is_private">Private</div>
+                        <% else %> 
+                            <div class="folder_is_not_private">Public</div>
+                        <% end %> 
+                    <% #end %> 
+                </div> 
+            </div> 
+        <% end %> 
+      
+        <!-- Listing Files -->
+        <% if @current_folder #checking if we are under any folder %>
+              <% @archives.each do |archive| %> 
+                  <div class="archive_details file"> 
+                        <div class="file_name"> <%= link_to archive.uploaded_file_file_name, archive %></div>
+                        <div class="file_size"><%= number_to_human_size(archive.uploaded_file_file_size, :precision => 2) %></div> 
+                        <div class="file_last_updated"><%= archive.uploaded_file_updated_at %></div> 
+                  </div> 
+              <% end %>
+        <% end %>
+    </div>
+</div>

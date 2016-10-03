@@ -1,0 +1,24 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.folder  { 
+    background:url("folder.png") no-repeat scroll left center transparent; 
+} 
+  
+.file { 
+    background:url("file.png") no-repeat scroll left center transparent; 
+} 
+.archive_details:hover{
+    border:1px solid #e0f3ee; 
+    border-radius: 4px;
+    background-color: #d4eee8;
+} 
+.folder.archive_details:hover  { 
+    background:url("folder.png") no-repeat scroll left center transparent; 
+} 
+.file.archive_details:hover  { 
+    background:url("file.png") no-repeat scroll left center transparent; 
+    border:1px solid #e0f3ee; 
+    border-radius: 4px;
+    background-color: #d4eee8;
+}

@@ -1,0 +1,44 @@
+
+  <%= form_for(@folder) do |f| %>
+    <% if @folder.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+  
+        <ul>
+        <% @folder.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+      
+       <%= f.hidden_field :parent_id %> 
+    </div>
+    
+    <% if @folder.parent.nil? %>
+    
+      <% if @folder.new_record? %> 
+        <div class="field">
+            <p><%= f.check_box :is_private %>
+            I want this project be Private.</p>
+        </div>
+      <% else %> 
+        <%= f.hidden_field :is_private %>
+      <% end %> 
+      
+    <% else %>
+      <%= f.hidden_field :is_private, :value => @folder.parent.is_private %> 
+    <% end %>
+   
+    <div class="actions">
+      <% if @folder.new_record? %> 
+         <%= f.submit "Create Folder" %> 
+      <% else %> 
+         <%= f.submit "Rename Folder" %> 
+      <% end %> 
+    </div>
+  <% end %>

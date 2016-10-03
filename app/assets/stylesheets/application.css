@@ -1,0 +1,225 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap
+ */
+.breadcrumbs { 
+   margin:10px 0; 
+   font-weight:bold; 
+} 
+.breadcrumbs a { 
+   color:#1D96EF; 
+   text-decoration:none; 
+}
+
+.nav-text-color{
+    color: #1549B1;  
+}
+
+#sign-up-button{
+    color: white;
+}
+
+#sign-up-button:hover{
+    color: white;
+}
+
+#nav-ico-a{
+    width:  52px;
+    height: 52px;
+    display: inline-block;
+    background-image: url('http://www.iconarchive.com/download/i94299/bokehlicia/captiva/cloud.ico');
+    background-size: 52px;
+    margin-right: 20px;
+}
+
+#nav-ico-a:hover{
+    background-color:#E8E8E8;
+    border-radius: 5px;
+    
+}
+
+#cloudCode-ico{
+    width:  52px;
+    height: 52px;
+    display: inline-block;
+    background-image: url('http://maxit.com.au/wp-content/uploads/2014/06/cloud.png');
+    background-size: 52px;
+}
+
+#navbar-brand-left{
+    margin-left: 20px;
+    height: 100%;
+}
+
+#navbar-brand-left:hover{
+    background-color: #E8E8E8;
+}
+
+body{
+	background:url('http://www.cssdeck.com/uploads/media/items/0/0Rs78ic.gif');
+	color:#888;
+	/*padding:0;
+	margin:0;*/
+	font: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+}
+
+.folder_is_private{
+    color: red;
+    width:60px; 
+    float:left; 
+}
+
+.folder_is_not_private{
+    color: green;
+    width:60px; 
+    float:left; 
+}
+
+.box {
+	background:#FFF;
+	margin:40px auto;
+	padding: 40px;
+}
+
+.effect2
+{
+  position: relative;
+  border-radius: 10px;
+}
+
+.effect2 h1{
+   color: #5185ED;
+}
+
+.effect2 h2{
+   color: #5185ED;
+}
+
+.effect2 h3{
+   color: #5185ED;
+}
+
+.effect2:before, .effect2:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.effect2:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+#ace-editor-section{
+    width:100%;
+}
+
+.ace-github {
+    height: 400px;
+    width:100%;
+}
+
+#file_name{
+    display:inline-block;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+}
+footer {
+  margin-top:100px;
+  padding-top:20px;
+  padding-bottom:10px;
+  width: 100%;
+  position: absolute;
+  /* Set the fixed height of the footer here */
+  text-align: center;
+  background-color:white;
+  color:#1549B1;
+}
+
+
+/* Action Buttons*/
+.actions_buttons, .folder_actions_buttons { 
+    float:right; 
+    font-size:12px; 
+}
+.rename, .download, .delete{ 
+    float:left;  
+    height:26px;
+} 
+.archive_details .rename a,.archive_details .download a,.archive_details .delete a{ 
+    border: 1px solid #b6ddff; 
+    font-size: 12px; 
+    margin-left: 5px; 
+    padding: 0 2px; 
+    border-radius:2px;
+} 
+.archive_details .rename a:hover,.archive_details .download a:hover,.archive_details .delete a:hover{ 
+    border:1px solid #8FCDFF; 
+} 
+  
+.archive_details .delete a{ 
+    color:#BF0B12; 
+    border:1px solid #FFCFD1; 
+} 
+  
+.archive_details .delete a:hover{ 
+    color:#BF0B12; 
+    border:1px solid #FF8F93; 
+}
+
+
+/*Save button*/
+
+#save_button{
+    background:url("save.gif") no-repeat scroll left center transparent;
+    padding-left:36px;
+}
+
+#download_button{
+    background:url("download.gif") no-repeat scroll left center transparent;
+    padding-left:40px;
+}
+
+#save_button:hover, #download_button:hover{
+    border:1.2px solid #8FCDFF; 
+    background-color:#DFF1FF;
+}

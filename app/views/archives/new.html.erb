@@ -1,0 +1,12 @@
+<div class="box effect2">
+   <h1>New File</h1>
+   <%= render 'form' %> 
+     
+   <p> 
+   <% if @archive.folder %> 
+      <%= link_to "Back to '#{@archive.folder.name}' Folder", browse_path(@archive.folder) %> 
+   <% else %> 
+      <%= link_to "Back", root_url %> 
+   <% end %> 
+   </p>
+</div>

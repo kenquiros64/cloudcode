@@ -1,0 +1,24 @@
+<%= form_for(@archive, :html => {:multipart => true}) do |f| %>
+  <% if @archive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@archive.errors.count, "error") %> prohibited this archive from being saved:</h2>
+
+      <ul>
+      <% @archive.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p> 
+      <%= f.label :uploaded_file, "File" %><br /> 
+      <%= f.file_field :uploaded_file %> 
+    </p> 
+    <%= f.hidden_field :folder_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Upload"%>
+  </div>
+<% end %>
